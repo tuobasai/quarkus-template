@@ -60,7 +60,7 @@ jooq {
                     database {
                         name = 'org.jooq.meta.h2.H2Database'
                         includes = '.*'
-                        excludes = ''
+                        excludes = 'flyway_schema_history'
                     }
                     target {
                         packageName = 'com.tuobasai.gc'
