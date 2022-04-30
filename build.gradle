@@ -44,8 +44,6 @@ compileTestJava {
 flyway {
     configurations = ['flywayMigration']
     url = 'jdbc:h2:~/template;AUTO_SERVER=TRUE'
-    user = 'template'
-    password = 'not_a_secret'
 }
 
 jooq {
@@ -56,8 +54,6 @@ jooq {
                 jdbc {
                     driver = 'org.h2.Driver'
                     url = flyway.url
-                    user = flyway.user
-                    password = flyway.password
                 }
                 generator {
                     name = 'org.jooq.codegen.DefaultGenerator'
