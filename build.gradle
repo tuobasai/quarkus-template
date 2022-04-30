@@ -79,7 +79,6 @@ jooq {
                     target {
                         packageName = 'io.tuobasai.gc'
                     }
-                    strategy.name = 'org.jooq.codegen.DefaultGeneratorStrategy'
                     strategy {
                         matchers {
                             tables {
