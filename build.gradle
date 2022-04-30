@@ -70,8 +70,31 @@ jooq {
                         includes = '.*'
                         excludes = 'flyway_schema_history'
                     }
+                    generate {
+                        deprecated = false
+                        records = true
+                        immutablePojos = true
+                        fluentSetters = true
+                    }
                     target {
                         packageName = 'io.tuobasai.gc'
+                    }
+                    strategy.name = 'org.jooq.codegen.DefaultGeneratorStrategy'
+                    strategy {
+                        matchers {
+                            tables {
+                                table {
+                                    tableClass {
+                                        transform = 'PASCAL'
+                                        expression = '$0_TABLE'
+                                    }
+                                    pojoClass {
+                                        transform = 'PASCAL'
+                                        expression = '$0_POJO'
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
