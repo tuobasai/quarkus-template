@@ -41,6 +41,14 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs 'build/generated-src/jooq'
+        }
+    }
+}
+
 flyway {
     configurations = ['flywayMigration']
     url = 'jdbc:h2:~/template;AUTO_SERVER=TRUE'
@@ -63,7 +71,7 @@ jooq {
                         excludes = 'flyway_schema_history'
                     }
                     target {
-                        packageName = 'com.tuobasai.gc'
+                        packageName = 'io.tuobasai.gc'
                     }
                 }
             }
@@ -86,4 +94,5 @@ tasks.named('generateJooq').configure {
 
     // make jOOQ task participate in incremental builds (and build caching)
     allInputsDeclared = true
+    outputs.cacheIf { true }
 }
